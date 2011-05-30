@@ -1,0 +1,29 @@
+<h1>Listing iterations</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Days</th>
+    <th>Feature</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @iterations.each do |iteration| %>
+  <tr>
+    <td><%= iteration.name %></td>
+    <td><%= iteration.description %></td>
+    <td><%= iteration.days %></td>
+    <td><%= iteration.feature_id %></td>
+    <td><%= link_to 'Show', iteration %></td>
+    <td><%= link_to 'Edit', edit_iteration_path(iteration) %></td>
+    <td><%= link_to 'Destroy', iteration, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Iteration', new_iteration_path %>
