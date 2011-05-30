@@ -1,0 +1,24 @@
+Fossa
+====================
+ 
+by Carlos Gabaldon <carlosgabaldon.com>
+ 
+project page: http://github.com/CarlosGabaldon/fossa/
+project repo: git://github.com/CarlosGabaldon/fossa.git
+
+Fossa (pronounced "FOO-sa") is a very simple to use agile project management tool built with Ruby on Rails that helps small teams develop software in a iterative manner.
+How does Fossa work?
+
+   1. Create your project
+   2. Add features to your project
+   3. Create an iteration
+   4. Add tasks to your iteration
+   5. Seek feedback from your customer
+   6. Repeat steps 3 & 4 until feature is complete
+
+## ENVIRONMENT SETUP ##
+
+--
+
+
+Copyright (c) 2008 Carlos Gabaldon, released under the MIT license
