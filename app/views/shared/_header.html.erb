@@ -1,12 +1,12 @@
 <%= render :partial => "shared/logo" %>
 
 <div id="user_status_header">
-	Welcome <!--% self.current_user ? self.current_user.login : "Guest" %--> , 
+	Welcome <%= self.current_user ? self.current_user.login : "Guest" %> , 
 	
-	<!--% if logged_in? -->
-	  <!--%= link_to "log out" , sessions_path , :method => :delete %-->	
-	<!--% else %-->
-	  <!--%= link_to "login", new_session_path %-->
-	<!-- end -->
+	<% if logged_in? %>
+	  <%= link_to "log out" , sessions_path , :method => :delete %>	
+	<% else %>
+	  <%= link_to "login", new_session_path %>
+	<% end %>
 	
 </div>

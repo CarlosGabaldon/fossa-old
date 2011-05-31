@@ -125,8 +125,8 @@ class TasksController < ApplicationController
     @priorities = Priority.find(:all)
   end
   
-  #def get_users
-  #  @users = User.find(:all)
-  #end
+  def get_users
+    @users = User.find(:all)
+  end
   
 end
