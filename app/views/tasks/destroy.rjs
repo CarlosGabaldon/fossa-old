@@ -1,0 +1,5 @@
+
+page.remove dom_id(@removed_task)
+page.replace_html "high", "#{@high_tasks.length} High"
+page.replace_html "med", "#{@med_tasks.length} Medium"
+page.replace_html "low", "#{@low_tasks.length} Low"

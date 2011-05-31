@@ -1,0 +1,19 @@
+<li id="<%=dom_id project %>">
+<%= project.name %> - <%= pluralize(project.total_days, "day") %> to complete<br/>
+<%= link_to pluralize(project.features.length,"Feature"), features_path(project) %> 
+
+<% if logged_in?  %>
+-
+<%= link_to_remote 'Edit', 
+                 :url => edit_project_path(project), 
+                 :method => :get %> or
+ <%= link_to_remote 'Destroy',
+                 :url => project_path(project),
+                 :confirm => 'Are you sure?',
+	             :method => :delete %>
+<% end %>
+
+<br/>
+- <%= project.description %><br/>
+
+</li>

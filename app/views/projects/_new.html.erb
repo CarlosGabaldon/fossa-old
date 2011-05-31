@@ -1,0 +1,25 @@
+<div id="new-project">
+	<a id="project-show" style="text-decoration: underline;cursor: pointer;cursor: hand;" 
+	   onclick="Effect.BlindDown('project-form-container', {duration: 0.8}); Element.hide('project-show')">Add project</a>
+	
+	<div id="project-form-container" style="display:none"><!--new_project_path -->
+    	<h3>Add a project</h3>
+    	<% form_remote_for :project, Feature.new, 
+                       :url => projects_path,   
+                       :loading => 'App.disableForm()',
+                       :complete => 'App.enableForm()',
+                       :html => {:id => 'form'} do |f| %>
+
+   		<%= render :partial => 'projects/form', :locals => { :project => @project, :f => f }%>
+
+    
+    	<%= submit_tag 'Add project' %> or 
+
+		
+		<a id="project-hide" style="text-decoration: underline; cursor: pointer;cursor: hand;" 
+		   onclick="Effect.BlindUp('project-form-container', {duration: 0.5}); Element.show('project-show')">Cancel</a>
+		
+    	<%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
+    	<% end %>
+	</div>
+</div>

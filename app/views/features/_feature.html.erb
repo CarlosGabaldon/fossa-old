@@ -1,0 +1,23 @@
+<li id="<%= dom_id feature %>">
+<b><%= feature.name %></b> requires <b><%= pluralize(feature.total_days, "day") %></b> to complete
+<br/>
+<%= link_to pluralize(feature.iterations.length, "Iteration"), iterations_path(@project, feature) %> 
+
+<% if logged_in?  %>
+-
+<%= link_to_remote 'Edit', 
+                 :url => edit_feature_path(@project, feature), 
+                 :method => :get %> or
+ <%= link_to_remote 'Destroy',
+                 :url => feature_path(@project, feature),
+                 :confirm => 'Are you sure?',
+	             :method => :delete %>
+	
+or Mark this feature completed <%= check_box_tag "feature[completed]", feature.completed %>
+
+<% end %>
+
+<br/>
+- <%= feature.description %><br/>
+
+</li>

@@ -4,6 +4,8 @@ class CreateFeatures < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :priority_id
+      t.integer :project_id
+      t.boolean :completed, :default => false
 
       t.timestamps
     end

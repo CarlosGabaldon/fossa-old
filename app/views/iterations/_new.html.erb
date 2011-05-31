@@ -1,0 +1,25 @@
+<div id="new-iteration">
+	<a id="iteration-show" style="text-decoration: underline;cursor: pointer;cursor: hand;" 
+	   onclick="Effect.BlindDown('iteration-form-container', {duration: 0.8}); Element.hide('iteration-show')">Add iteration</a>
+	
+	<div id="iteration-form-container" style="display:none">
+    	<h3>Add a iteration</h3>
+    	<% form_remote_for :iteration, Iteration.new, 
+                       :url => iterations_path(@project),
+                       :loading => 'App.disableForm()',
+                       :complete => 'App.enableForm()',
+                       :html => {:id => 'form' } do |f| %>
+
+   		<%= render :partial => 'iterations/form', :locals => { :project => @project, :f => f }%>
+
+    
+    	<%= submit_tag 'Add iteration' %> or 
+
+		
+		<a id="iteration-hide" style="text-decoration: underline; cursor: pointer;cursor: hand;" 
+		   onclick="Effect.BlindUp('iteration-form-container', {duration: 0.5}); Element.show('iteration-show')">Cancel</a>
+		
+    	<%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
+    	<% end %>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+if @iteration.new_record?
+  page.alert "The iteration could not be added for the following reasons:\n"
+            + @iteration.errors.full_messages.join("\n")
+else
+
+  page.insert_html :bottom, "iterations", :partial => 'iteration'
+  page.visual_effect :highlight, dom_id(@iteration)
+  page.replace_html "iteration-header", @feature.name + " feature has " + pluralize(@iterations.length, "Iteration")
+  page.form.reset 'form'
+ 
+end
+ 

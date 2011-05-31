@@ -1,27 +1,22 @@
-<h1>Listing features</h1>
+<%= link_to "Projects", projects_path %> > <%= @project.name %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Priority</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h2><%= @project.name %> project has 
+	<%= pluralize(@project.features.length,"feature") %> that requires
+	<%= pluralize(@project.total_days, "day")%> to complete
+	
+</h2>
+<h3 id="high"><%= @high_features.length %> High</h3>
+<ul id="features-high">
+<%= render :partial => 'features', :locals => {:features => @high_features} %>
+</ul>
+<h3 id="med"><%= @med_features.length %> Medium</h3>
+<ul id="features-med">
+<%= render :partial => 'features', :locals => {:features => @med_features} %>
+</ul>
+<h3 id="low"><%= @low_features.length %> Low</h3>
+<ul id="features-low">
+<%= render :partial => 'features', :locals => {:features => @low_features} %>
+</ul>
 
-<% @features.each do |feature| %>
-  <tr>
-    <td><%= feature.name %></td>
-    <td><%= feature.description %></td>
-    <td><%= feature.priority_id %></td>
-    <td><%= link_to 'Show', feature %></td>
-    <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
-    <td><%= link_to 'Destroy', feature, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Feature', new_feature_path %>
+<br/>
+<%= render :partial => 'features/new' if logged_in?  %>

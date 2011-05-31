@@ -1,0 +1,21 @@
+<li id="<%= dom_id task %>">
+ 	<% form_remote_for :task, task, 
+                    :url => task_path(@project, @feature, @iteration, task),   
+                    :loading => 'App.disableProjectForm()',
+                    :complete => 'App.enableProjectForm()',
+                    :html => {:id => 'task-form', :method => :put } do |f| %>
+
+	  <%= render :partial => 'tasks/form', :locals => { :task => task, :f => f }%>
+
+ 
+ 	  <%= submit_tag 'Edit task' %> or 
+
+      <%= link_to_remote 'Cancel', 
+	                 :url => cancel_task_path(@project, @feature, @iteration, task), 
+	                 :method => :get %>
+
+ 	  <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
+
+ 	<% end %>
+
+</li>

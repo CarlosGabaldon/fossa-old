@@ -1,0 +1,2 @@
+
+page.replace dom_id(@project), :partial => 'edit', :locals => {:project => @project}

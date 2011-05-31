@@ -1,0 +1,15 @@
+if @feature.new_record?
+  page.alert "The feature could not be added for the following reasons:\n"
+            + @feature.errors.full_messages.join("\n")
+else
+  features_div = "features-high"
+  if @feature.priority.name == "Med"
+    features_div = "features-med"  
+  elsif @feature.priority.name == "Low"
+    features_div = "features-low"  
+  end
+  page.insert_html :bottom, features_div, :partial => 'feature'
+  page.visual_effect :highlight, dom_id(@feature)
+  page.form.reset 'form'
+ 
+end

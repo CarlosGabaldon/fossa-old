@@ -1,0 +1,13 @@
+tasks_div = "tasks-high"
+if @task.priority.name == "Med"
+  tasks_div = "tasks-med"  
+elsif @task.priority.name == "Low"
+  tasks_div = "tasks-low"  
+end
+
+page.remove dom_id(@task)
+page.insert_html :bottom, tasks_div, :partial => 'task'
+page.visual_effect :highlight, dom_id(@task)
+page.replace_html "high", "#{@high_tasks.length} High"
+page.replace_html "med", "#{@med_tasks.length} Medium"
+page.replace_html "low", "#{@low_tasks.length} Low"

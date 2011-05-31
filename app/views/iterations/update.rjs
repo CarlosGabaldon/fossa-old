@@ -1,0 +1,4 @@
+
+page.replace dom_id(@iteration), :partial => 'iteration'
+page.visual_effect :highlight, dom_id(@iteration)
+page.replace_html "iteration-header", @feature.name + " feature has " + pluralize(@iterations.length, "Iteration")

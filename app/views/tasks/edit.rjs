@@ -1,0 +1,2 @@
+
+page.replace dom_id(@task), :partial => 'edit', :locals => {:task => @task}

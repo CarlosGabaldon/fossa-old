@@ -1,0 +1,25 @@
+<div id="new-task">
+	<a id="task-show" style="text-decoration: underline;cursor: pointer;cursor: hand;" 
+	   onclick="Effect.BlindDown('task-form-container', {duration: 0.8}); Element.hide('task-show')">Add task</a>
+	
+	<div id="task-form-container" style="display:none">
+    	<h3>Add a task</h3>
+    	<% form_remote_for :task, Feature.new, 
+                       :url => tasks_path(@project, @feature, @iteration),
+                       :loading => 'App.disableForm()',
+                       :complete => 'App.enableForm()',
+                       :html => {:id => 'form' } do |f| %>
+
+   		<%= render :partial => 'tasks/form', :locals => { :f => f }%>
+
+    
+    	<%= submit_tag 'Add task' %> or 
+
+		
+		<a id="task-hide" style="text-decoration: underline; cursor: pointer;cursor: hand;" 
+		   onclick="Effect.BlindUp('task-form-container', {duration: 0.5}); Element.show('task-show')">Cancel</a>
+		
+    	<%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
+    	<% end %>
+	</div>
+</div>

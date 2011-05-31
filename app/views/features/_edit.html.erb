@@ -1,0 +1,21 @@
+<li id="<%= dom_id feature %>">
+ 	<% form_remote_for :feature, feature, 
+                    :url => feature_path(@project, feature),   
+                    :loading => 'App.disableProjectForm()',
+                    :complete => 'App.enableProjectForm()',
+                    :html => {:id => 'feature-form', :method => :put } do |f| %>
+
+	  <%= render :partial => 'features/form', :locals => { :feature => feature, :f => f }%>
+
+ 
+ 	  <%= submit_tag 'Edit feature' %> or 
+
+      <%= link_to_remote 'Cancel', 
+	                 :url => cancel_feature_path(@project, feature), 
+	                 :method => :get %>
+
+ 	  <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
+
+ 	<% end %>
+
+</li>

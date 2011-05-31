@@ -1,0 +1,2 @@
+
+page.replace dom_id(@feature), :partial => 'edit', :locals => {:feature => @feature}

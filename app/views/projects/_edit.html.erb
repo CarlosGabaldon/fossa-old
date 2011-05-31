@@ -1,0 +1,22 @@
+<li id="<%=dom_id project %>">
+ 	<% form_remote_for :project, project, 
+                    :url => project_path(project),   
+                    :loading => 'App.disableProjectForm()',
+                    :complete => 'App.enableProjectForm()',
+                    :html => {:id => 'project-form', :method => :put } do |f| %>
+
+	  <%= render :partial => 'projects/form', :locals => { :project => project, :f => f }%>
+
+ 
+ 	  <%= submit_tag 'Edit project' %> or 
+
+      <%= link_to_remote 'Cancel', 
+	                 :url => cancel_project_path(project), 
+	                 :method => :get %>
+
+ 	  <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
+
+ 	<% end %>
+
+</li>
+

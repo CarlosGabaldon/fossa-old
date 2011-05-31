@@ -1,0 +1,21 @@
+<li id="<%= dom_id iteration %>">
+ 	<% form_remote_for :iteration, iteration, 
+                    :url => iteration_path(@project, @feature, iteration),   
+                    :loading => 'App.disableProjectForm()',
+                    :complete => 'App.enableProjectForm()',
+                    :html => {:id => 'iteration-form', :method => :put } do |f| %>
+
+	  <%= render :partial => 'iterations/form', :locals => { :iteration => iteration, :f => f }%>
+
+ 
+ 	  <%= submit_tag 'Edit iteration' %> or 
+
+      <%= link_to_remote 'Cancel', 
+	                 :url => cancel_iteration_path(@project, @feature, iteration), 
+	                 :method => :get %>
+
+ 	  <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
+
+ 	<% end %>
+
+</li>

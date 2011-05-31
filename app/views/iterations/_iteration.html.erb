@@ -1,0 +1,20 @@
+<li id="<%= dom_id iteration %>">
+<b><%= iteration.name %></b> requires <b><%= pluralize(iteration.total_days, "day") %></b> of work to complete<br/>
+<%= link_to pluralize(iteration.tasks.length, "Task")  , tasks_path(@project, @feature, iteration) %> 
+
+<% if logged_in?  %>
+-
+<%= link_to_remote 'Edit', 
+                 :url => edit_iteration_path(@project, @feature, iteration), 
+                 :method => :get %> or
+ <%= link_to_remote 'Destroy',
+                 :url => iteration_path(@project, @feature, iteration),
+                 :confirm => 'Are you sure?',
+	             :method => :delete %>
+<% end %>
+
+<br/>
+- <%= iteration.description %><br/>
+
+
+</li>

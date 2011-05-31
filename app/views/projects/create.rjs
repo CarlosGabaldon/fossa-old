@@ -1,0 +1,15 @@
+if @project.new_record?
+  page.alert "The project could not be added for the following reasons:\n"
+            + @project.errors.full_messages.join("\n")
+else
+  projects_div = "projects-high"
+  if @project.priority.name == "Med"
+    projects_div = "projects-med"  
+  elsif @project.priority.name == "Low"
+    projects_div = "projects-low"  
+  end
+  page.insert_html :bottom, projects_div, :partial => 'project'
+  page.visual_effect :highlight, dom_id(@project)
+  page.form.reset 'form'
+ 
+end

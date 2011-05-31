@@ -1,0 +1,2 @@
+
+page.replace dom_id(@iteration), :partial => 'edit', :locals => {:iteration => @iteration}

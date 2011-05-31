@@ -1,33 +1,5 @@
-<%= form_for(@iteration) do |f| %>
-  <% if @iteration.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@iteration.errors.count, "error") %> prohibited this iteration from being saved:</h2>
+<label for="iteration_name">Name:</label><br />
+<%= f.text_field 'name', :size => 60 %><br />
 
-      <ul>
-      <% @iteration.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :days %><br />
-    <%= f.text_field :days %>
-  </div>
-  <div class="field">
-    <%= f.label :feature_id %><br />
-    <%= f.text_field :feature_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<label for="iteration_description">Description:</label><br />
+<%= f.text_area 'description',  :size => "60x10" %><br />

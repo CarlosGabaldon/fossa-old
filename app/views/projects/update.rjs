@@ -1,0 +1,14 @@
+projects_div = "projects-high"
+if @project.priority.name == "Med"
+  projects_div = "projects-med"  
+elsif @project.priority.name == "Low"
+  projects_div = "projects-low"  
+end
+
+#page.replace "project-#{@project.id}", :partial => 'project'
+page.remove dom_id(@project)
+page.insert_html :bottom, projects_div, :partial => 'project'
+page.visual_effect :highlight, dom_id(@project)
+page.replace_html "high", "#{@high_projects.length} High"
+page.replace_html "med", "#{@med_projects.length} Medium"
+page.replace_html "low", "#{@low_projects.length} Low"

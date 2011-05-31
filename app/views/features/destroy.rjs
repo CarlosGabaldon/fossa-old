@@ -1,0 +1,5 @@
+
+page.remove dom_id(@removed_feature)
+page.replace_html "high", "#{@high_features.length} High"
+page.replace_html "med", "#{@med_features.length} Medium"
+page.replace_html "low", "#{@low_features.length} Low"

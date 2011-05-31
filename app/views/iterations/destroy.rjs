@@ -1,0 +1,3 @@
+
+page.remove dom_id(@removed_iteration)
+page.replace_html "iteration-header", @feature.name + " feature has " + pluralize(@iterations.length, "Iteration")
