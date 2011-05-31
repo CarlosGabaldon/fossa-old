@@ -1,6 +1,8 @@
-class Project < ActiveRecord::Base
-  has_many :features, :dependent => :destroy 
+class Task < ActiveRecord::Base
   belongs_to :priority
+  belongs_to :iteration
+  belongs_to :feature
+  #belongs_to :user
   
   def self.high_priority
     find :all, :conditions => "priority_id = 1"
@@ -12,9 +14,5 @@ class Project < ActiveRecord::Base
   
   def self.low_priority
     find :all, :conditions => "priority_id = 3"
-  end
-  
-  def total_days
-    features.collect {|f| f.total_days }.sum
   end
 end

@@ -1,9 +1,14 @@
 Fossa::Application.routes.draw do
-  resources :iterations
 
-  resources :features
+  resources :projects, :member => {:cancel => :get} do
+    resources :features, :member => {:cancel => :get} do
+      resources :iterations, :member => {:cancel => :get} do
+        resources :tasks, :member => {:cancel => :get}
+      end
+    end
+  end
+  
 
-  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
