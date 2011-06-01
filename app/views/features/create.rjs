@@ -8,7 +8,7 @@ else
   elsif @feature.priority.name == "Low"
     features_div = "features-low"  
   end
-  page.insert_html :bottom, features_div, :partial => 'feature'
+  page.insert_html :bottom, features_div, :partial => 'feature', :locals => { :feature => @feature }
   page.visual_effect :highlight, dom_id(@feature)
   page.form.reset 'form'
  

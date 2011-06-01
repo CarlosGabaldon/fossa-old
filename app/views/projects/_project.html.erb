@@ -1,6 +1,6 @@
 <li id="<%=dom_id project %>">
 <%= project.name %> - <%= pluralize(project.total_days, "day") %> to complete<br/>
-<%= link_to pluralize(project.features.length,"Feature"), features_path(project) %> 
+<%= link_to pluralize(project.features.length,"Feature"), project_features_path(project) %> 
 
 <% if logged_in?  %>
 -

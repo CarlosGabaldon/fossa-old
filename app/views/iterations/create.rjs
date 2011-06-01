@@ -3,7 +3,7 @@ if @iteration.new_record?
             + @iteration.errors.full_messages.join("\n")
 else
 
-  page.insert_html :bottom, "iterations", :partial => 'iteration'
+  page.insert_html :bottom, "iterations", :partial => 'iteration', :locals => { :iteration => @iteration }
   page.visual_effect :highlight, dom_id(@iteration)
   page.replace_html "iteration-header", @feature.name + " feature has " + pluralize(@iterations.length, "Iteration")
   page.form.reset 'form'
