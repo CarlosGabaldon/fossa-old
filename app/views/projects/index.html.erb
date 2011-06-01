@@ -1,7 +1,7 @@
 Projects
 
 <h2><%= self.current_user ? self.current_user.login : "Guest" %>  has 
-	<%= pluralize(@projects.length,"project") %> 
+	<span id="project-count"><%= pluralize(@projects.length,"project") %> </span>
 	
 </h2>
 <h3 id="high"><%= @high_projects.length %> High</h3>
