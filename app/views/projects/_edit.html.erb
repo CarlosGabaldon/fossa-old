@@ -1,5 +1,6 @@
 <li id="<%=dom_id project %>">
- 	<% form_remote_for :project, project, 
+ 	<% form_for :project, project, 
+ 	                  :remote => true,
                     :url => project_path(project),   
                     :loading => 'App.disableProjectForm()',
                     :complete => 'App.enableProjectForm()',

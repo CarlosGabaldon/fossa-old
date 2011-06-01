@@ -4,7 +4,8 @@
 	
 	<div id="feature-form-container" style="display:none">
     	<h3>Add a feature</h3>
-    	<% form_remote_for :feature, Feature.new, 
+    	<% form_for :feature, Feature.new,
+    	                 :remote => true,
                        :url => features_path(@project),
                        :loading => 'App.disableForm()',
                        :complete => 'App.enableForm()',

@@ -4,7 +4,8 @@
 	
 	<div id="iteration-form-container" style="display:none">
     	<h3>Add a iteration</h3>
-    	<% form_remote_for :iteration, Iteration.new, 
+    	<% form_for :iteration, Iteration.new, 
+    	                 :remote => true,
                        :url => iterations_path(@project),
                        :loading => 'App.disableForm()',
                        :complete => 'App.enableForm()',

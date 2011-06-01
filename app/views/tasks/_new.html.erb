@@ -4,7 +4,8 @@
 	
 	<div id="task-form-container" style="display:none">
     	<h3>Add a task</h3>
-    	<% form_remote_for :task, Feature.new, 
+    	<% form_for :task, Feature.new, 
+    	                 :remote => true,
                        :url => tasks_path(@project, @feature, @iteration),
                        :loading => 'App.disableForm()',
                        :complete => 'App.enableForm()',

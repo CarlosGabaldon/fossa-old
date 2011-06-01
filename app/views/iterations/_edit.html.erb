@@ -1,5 +1,6 @@
 <li id="<%= dom_id iteration %>">
- 	<% form_remote_for :iteration, iteration, 
+ 	<% form_for :iteration, iteration, 
+ 	                  :remote => true,
                     :url => iteration_path(@project, @feature, iteration),   
                     :loading => 'App.disableProjectForm()',
                     :complete => 'App.enableProjectForm()',
