@@ -4,7 +4,7 @@
 	
 	<div id="project-form-container" style="display:none"><!--new_project_path -->
     	<h3>Add a project</h3>
-    	<% form_for :project, Feature.new, 
+    	<% form_for :project, Project.new, 
     	                 :remote => true,
                        :url => projects_path,   
                        :loading => 'App.disableForm()',

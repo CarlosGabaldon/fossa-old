@@ -3,3 +3,4 @@ page.remove dom_id(@removed_project)
 page.replace_html "high", "#{@high_projects.length} High"
 page.replace_html "med", "#{@med_projects.length} Medium"
 page.replace_html "low", "#{@low_projects.length} Low"
+page.replace_html "project-count", pluralize(@projects.length,"project")

@@ -1,2 +1,2 @@
-page.replace dom_id(@project), :partial => 'project'
+page.replace dom_id(@project), :partial => 'project', :locals => { :project => @project }
 

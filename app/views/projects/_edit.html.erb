@@ -11,9 +11,7 @@
  
  	  <%= submit_tag 'Edit project' %> or 
 
-      <%= link_to_remote 'Cancel', 
-	                 :url => cancel_project_path(project), 
-	                 :method => :get %>
+    <%= link_to 'Cancel', cancel_project_path(project), :method => :get, :remote => true %>
 
  	  <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
 

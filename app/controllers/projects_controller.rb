@@ -37,6 +37,10 @@ class ProjectsController < ApplicationController
   def edit
     @project = Project.find(params[:id])
     get_priorities
+    
+    respond_to do |format|
+      format.js
+    end
   end
 
   # POST /projects
@@ -80,17 +84,14 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @removed_project = @project
     @project.destroy
-
+    get_projects
+    
     respond_to do |format|
-      format.html { redirect_to(projects_url) }
-      format.xml  { head :ok }
       format.js
     end
   end
   
-  # POST /projects/1;cancel
-  # To generate url #=> cancel_project_path(project); link_to_remote also needs #=> :method => :get 
-  # Needed in routes.rb #=> map.resources :projects, :member => {:cancel => :get}
+  # POST /projects/1/cancel
   def cancel
     @project = Project.find(params[:id])
   end

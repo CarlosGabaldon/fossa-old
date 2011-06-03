@@ -20,10 +20,23 @@ Fossa::Application.routes.draw do
 
   match '/activate/:activation_code' => 'users#activate', :as => :activate, :activation_code => nil
 
-  resources :projects, :member => {:cancel => :get} do
-    resources :features, :member => {:cancel => :get} do
-      resources :iterations, :member => {:cancel => :get} do
-        resources :tasks, :member => {:cancel => :get}
+  resources :projects do
+    member do 
+      get :cancel
+    end
+    resources :features do
+      member do
+        get :cancel
+      end
+      resources :iterations do
+        member do
+          get :cancel
+        end
+        resources :tasks do
+          member do
+            get :cancel
+          end
+        end
       end
     end
   end
