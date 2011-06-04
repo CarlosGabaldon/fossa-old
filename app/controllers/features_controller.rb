@@ -50,6 +50,7 @@ class FeaturesController < ApplicationController
       if @feature.save
         @project.features << @feature
         @project.save
+        get_features
         format.js
       else
         format.js

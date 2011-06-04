@@ -4,11 +4,9 @@ if @feature.priority.name == "Med"
 elsif @feature.priority.name == "Low"
   features_div = "features-low"  
 end
-
-#page.replace "feature-#{@feature.id}", :partial => 'feature'
-page.remove dom_id(@feature)
-page.insert_html :bottom, features_div, :partial => 'feature'
+page.insert_html :bottom, features_div, :partial => 'feature', :locals => { :feature => @feature }
 page.visual_effect :highlight, dom_id(@feature)
 page.replace_html "high", "#{@high_features.length} High"
 page.replace_html "med", "#{@med_features.length} Medium"
 page.replace_html "low", "#{@low_features.length} Low"
+page.form.reset 'form'

@@ -1,7 +1,7 @@
 <%= link_to "Projects", projects_path %> > <%= @project.name %>
 
 <h2><%= @project.name %> project has 
-	<%= pluralize(@project.features.length,"feature") %> that requires
+	<span id="feature-count"><%= pluralize(@project.features.length,"feature") %></span> that requires
 	<%= pluralize(@project.total_days, "day")%> to complete
 	
 </h2>
@@ -19,4 +19,4 @@
 </ul>
 
 <br/>
-<%= render :partial => 'features/new' if logged_in?  %>
+<%= render :partial => 'features/new'   %> <!-- if logged_in? -->
