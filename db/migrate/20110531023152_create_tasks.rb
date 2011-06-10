@@ -5,6 +5,7 @@ class CreateTasks < ActiveRecord::Migration
       t.text :description
       t.integer :priority_id
       t.integer :feature_id
+      t.integer :iteration_id
       t.integer :user_id
       t.integer :days
 

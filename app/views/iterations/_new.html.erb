@@ -6,7 +6,7 @@
     	<h3>Add a iteration</h3>
     	<% form_for :iteration, Iteration.new, 
     	                 :remote => true,
-                       :url => iterations_path(@project),
+                       :url => project_feature_iterations_path(@project, @feature),
                        :loading => 'App.disableForm()',
                        :complete => 'App.enableForm()',
                        :html => {:id => 'form' } do |f| %>

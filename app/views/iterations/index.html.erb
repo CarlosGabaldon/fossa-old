@@ -1,4 +1,4 @@
-<%= link_to "Projects", projects_path %> > <%= link_to @project.name, features_path(@project) %> > <%= @feature.name %>
+<%= link_to "Projects", projects_path %> > <%= link_to @project.name, project_features_path(@project) %> > <%= @feature.name %>
 
 <h2 id="iteration-header"><%= @feature.name %> feature has 
 	<%= pluralize @iterations.length, "Iteration" %> 
@@ -10,4 +10,4 @@
 </ul>
 
 <br/>
-<%= render :partial => 'iterations/new' if logged_in?  %>
+<%= render :partial => 'iterations/new' %> <!-- if logged_in? -->
