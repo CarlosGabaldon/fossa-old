@@ -1,6 +1,6 @@
 Projects
 
-<h2><!--%= self.current_user ? self.current_user.login : "Guest" %--> Guest  has 
+<h2><%= current_user ? current_user.email : "Guest" %>  has 
 	<span id="project-count"><%= pluralize(@projects.length,"project") %> </span>
 	
 </h2>
@@ -18,5 +18,5 @@ Projects
 	</ul>
 
 <br/>
-<%= render :partial => 'projects/new' %> <!-- if logged_in? -->
+<%= render :partial => 'projects/new' if user_signed_in?  %> 
 

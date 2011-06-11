@@ -1,17 +1,17 @@
 <li id="<%= dom_id task %>">
-<b><%= task.user ? task.user.login : "Unassigned" %></b> needs 
+<b><%= task.user ? friendly_user_name(task.user) : "Unassigned" %></b> needs 
 <b><%= pluralize(task.days, "day") %></b> to complete <b><%= task.name %></b> task
 <br/>
 
-<% if logged_in?  %>
+<% if user_signed_in?  %>
 
-<%= link_to_remote 'Edit', 
-                 :url => edit_task_path(@project, @feature, @iteration, task), 
-                 :method => :get %> or
- <%= link_to_remote 'Destroy',
-                 :url => task_path(@project, @feature, @iteration, task),
+<%= link_to 'Edit', edit_project_feature_iteration_task_path(@project, @feature, @iteration, task), 
+                 :method => :get,
+                 :method => :remote %> or
+ <%= link_to 'Destroy',project_feature_iteration_task_path(@project, @feature, @iteration, task),
                  :confirm => 'Are you sure?',
-	             :method => :delete %>
+	               :method => :delete,
+	               :method => :remote %>
 <% end %>
 
 <br/>

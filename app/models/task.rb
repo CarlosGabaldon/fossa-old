@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   belongs_to :priority
   belongs_to :iteration
   belongs_to :feature
-  #belongs_to :user
+  belongs_to :user
   
   def self.high_priority
     find :all, :conditions => "priority_id = 1"

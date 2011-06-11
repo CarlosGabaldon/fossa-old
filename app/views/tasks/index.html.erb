@@ -1,6 +1,6 @@
 <%= link_to "Projects", projects_path %> > 
-<%= link_to @project.name, features_path(@project) %> > 
-<%= link_to @feature.name, iterations_path(@project, @feature) %> >
+<%= link_to @project.name, project_features_path(@project) %> > 
+<%= link_to @feature.name, project_feature_iterations_path(@project, @feature) %> >
 <%= @iteration.name %> 
 
 <h2><%= @iteration.name %> iteration has 
@@ -22,4 +22,4 @@
 	</ul>
 
 <br/>
-<%= render :partial => 'tasks/new'  if logged_in? %>
+<%= render :partial => 'tasks/new'  %> <!--if logged_in? %-->

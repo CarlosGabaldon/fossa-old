@@ -2,11 +2,11 @@
 <%= project.name %> - <%= pluralize(project.total_days, "day") %> to complete<br/>
 <%= link_to pluralize(project.features.length,"Feature"), project_features_path(project) %> 
 
-<!--% if logged_in?  %-->
+<% if user_signed_in? %>
 -
 <%= link_to 'Edit', edit_project_path(project), :method => :get, :remote => true %> or
 <%= link_to 'Destroy', project_path(project), :method => :delete, :remote => true, :confirm => 'Are you sure?'%>
-<!--% end %-->
+<% end %>
 
 <br/>
 - <%= project.description %><br/>

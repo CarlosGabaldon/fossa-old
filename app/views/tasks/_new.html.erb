@@ -6,7 +6,7 @@
     	<h3>Add a task</h3>
     	<% form_for :task, Feature.new, 
     	                 :remote => true,
-                       :url => tasks_path(@project, @feature, @iteration),
+                       :url => project_feature_iteration_tasks_path(@project, @feature, @iteration),
                        :loading => 'App.disableForm()',
                        :complete => 'App.enableForm()',
                        :html => {:id => 'form' } do |f| %>

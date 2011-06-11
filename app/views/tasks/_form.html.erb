@@ -11,4 +11,4 @@
 <%= select :task, :priority_id, @priorities.collect {|p| [ p.name, p.id ] } %><br /> <br />
 
 <label for="task_user">Assigned to:</label><br />
-<%= select :task, :user_id, @users.collect {|u| [ u.login, u.id ] } %><br /> <br />
+<%= select :task, :user_id, @users.collect {|u| [ u.email, u.id ] } %><br /> <br />
