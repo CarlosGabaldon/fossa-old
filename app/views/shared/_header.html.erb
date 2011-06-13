@@ -4,7 +4,7 @@
 	Welcome <%= current_user ? current_user.email : "Guest" %> Guest, 
 	
 	<% if user_signed_in? %>
-	  <%= link_to "log out" , destroy_user_session_path , :method => :delete %>	
+	  <%= link_to "log out" , destroy_user_session_path %>	
 	<% else %>
 	  <%= link_to "login", new_user_session_path %>
 	<% end %>
