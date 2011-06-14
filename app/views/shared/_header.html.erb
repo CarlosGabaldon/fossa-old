@@ -1,7 +1,7 @@
 <%= render :partial => "shared/logo" %>
 
 <div id="user_status_header">
-	Welcome <%= current_user ? current_user.email : "Guest" %> Guest, 
+	Welcome <%= current_user ? current_user.email : "Guest" %> , 
 	
 	<% if user_signed_in? %>
 	  <%= link_to "log out" , destroy_user_session_path %>	

@@ -100,8 +100,6 @@ class TasksController < ApplicationController
   end
   
    # POST /tasks/1;cancel
-   # To generate url #=> cancel_task_path(task); link_to_remote also needs #=> :method => :get 
-   # Needed in routes.rb #=> map.resources :tasks, :member => {:cancel => :get}
    def cancel
      @task = Task.find(params[:id])
    end

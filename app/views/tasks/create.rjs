@@ -13,6 +13,7 @@ else
   page.replace_html "high", "#{@high_tasks.length} High"
   page.replace_html "med", "#{@med_tasks.length} Medium"
   page.replace_html "low", "#{@low_tasks.length} Low"
+  page.replace_html "task-count", pluralize(@iteration.tasks.length, "Task")
   page.form.reset 'form'
  
 end

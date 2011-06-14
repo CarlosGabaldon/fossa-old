@@ -4,7 +4,7 @@
 <%= @iteration.name %> 
 
 <h2><%= @iteration.name %> iteration has 
-	<%= pluralize @iteration.tasks.length, "Task" %> 
+	<span id="task-count"><%= pluralize(@iteration.tasks.length, "Task") %> </span>
 	
 </h2>
 
@@ -22,4 +22,4 @@
 	</ul>
 
 <br/>
-<%= render :partial => 'tasks/new'  %> <!--if logged_in? %-->
+<%= render :partial => 'tasks/new' if user_signed_in?  %> 
