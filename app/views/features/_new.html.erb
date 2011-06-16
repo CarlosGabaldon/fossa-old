@@ -4,12 +4,13 @@
 	
 	<div id="feature-form-container" style="display:none">
     	<h3>Add a feature</h3>
-    	<% form_for :feature, Feature.new,
-    	                 :remote => true,
-                       :url => project_features_path(@project),
-                       :loading => 'App.disableForm()',
-                       :complete => 'App.enableForm()',
-                       :html => {:id => 'form' } do |f| %>
+    	<%= form_for Feature.new,
+    	            :as => :feature, 
+    	            :remote => true,
+                  :url => project_features_path(@project),
+                  :loading => 'App.disableForm()',
+                  :complete => 'App.enableForm()',
+                  :html => {:id => 'form' } do |f| %>
 
    		<%= render :partial => 'features/form', :locals => { :project => @project, :f => f }%>
 

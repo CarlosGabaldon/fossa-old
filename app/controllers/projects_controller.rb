@@ -1,14 +1,14 @@
 class ProjectsController < ApplicationController
+  
+  respond_to :html, :js
+  
   # GET /projects
   # GET /projects.xml
   def index
     get_projects
     get_priorities
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @high_projects.to_xml }
-    end
+    respond_with [get_priorities, get_priorities]
   end
 
   # GET /projects/1
@@ -16,10 +16,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @project }
-    end
+    respond_with @project
   end
 
   # GET /projects/new
@@ -38,9 +35,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     get_priorities
     
-    respond_to do |format|
-      format.js
-    end
+    respond_with @project
   end
 
   # POST /projects

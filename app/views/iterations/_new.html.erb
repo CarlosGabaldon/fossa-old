@@ -4,12 +4,13 @@
 	
 	<div id="iteration-form-container" style="display:none">
     	<h3>Add a iteration</h3>
-    	<% form_for :iteration, Iteration.new, 
-    	                 :remote => true,
-                       :url => project_feature_iterations_path(@project, @feature),
-                       :loading => 'App.disableForm()',
-                       :complete => 'App.enableForm()',
-                       :html => {:id => 'form' } do |f| %>
+    	<%= form_for Iteration.new, 
+    	             :as => :iteration,
+    	             :remote => true,
+                   :url => project_feature_iterations_path(@project, @feature),
+                   :loading => 'App.disableForm()',
+                   :complete => 'App.enableForm()',
+                   :html => {:id => 'form' } do |f| %>
 
    		<%= render :partial => 'iterations/form', :locals => { :project => @project, :f => f }%>
 

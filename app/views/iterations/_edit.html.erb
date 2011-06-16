@@ -1,10 +1,11 @@
 <li id="<%= dom_id iteration %>">
- 	<% form_for :iteration, iteration, 
- 	                  :remote => true,
-                    :url => iteration_path(@project, @feature, iteration),   
-                    :loading => 'App.disableProjectForm()',
-                    :complete => 'App.enableProjectForm()',
-                    :html => {:id => 'iteration-form', :method => :put } do |f| %>
+ 	<%= form_for iteration, 
+ 	            :as => :iteration,
+ 	            :remote => true,
+              :url => iteration_path(@project, @feature, iteration),   
+              :loading => 'App.disableProjectForm()',
+              :complete => 'App.enableProjectForm()',
+              :html => {:id => 'iteration-form', :method => :put } do |f| %>
 
 	  <%= render :partial => 'iterations/form', :locals => { :iteration => iteration, :f => f }%>
 

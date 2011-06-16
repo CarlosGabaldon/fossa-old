@@ -1,10 +1,11 @@
 <li id="<%= dom_id task %>">
- 	<% form_for :task, task, 
- 	                  :remote => true,
-                    :url => task_path(@project, @feature, @iteration, task),   
-                    :loading => 'App.disableProjectForm()',
-                    :complete => 'App.enableProjectForm()',
-                    :html => {:id => 'task-form', :method => :put } do |f| %>
+ 	<%= form_for task, 
+ 	             :as => :task, 
+ 	             :remote => true,
+               :url => task_path(@project, @feature, @iteration, task),   
+               :loading => 'App.disableProjectForm()',
+               :complete => 'App.enableProjectForm()',
+               :html => {:id => 'task-form', :method => :put } do |f| %>
 
 	  <%= render :partial => 'tasks/form', :locals => { :task => task, :f => f }%>
 

@@ -1,10 +1,11 @@
 <li id="<%= dom_id feature %>">
- 	<% form_for :feature, feature, 
- 	                  :remote => true,
-                    :url => feature_path(@project, feature),   
-                    :loading => 'App.disableProjectForm()',
-                    :complete => 'App.enableProjectForm()',
-                    :html => {:id => 'feature-form', :method => :put } do |f| %>
+ 	<%= form_for feature, 
+ 	            :as => :feature, 
+ 	            :remote => true,
+              :url => feature_path(@project, feature),   
+              :loading => 'App.disableProjectForm()',
+              :complete => 'App.enableProjectForm()',
+              :html => {:id => 'feature-form', :method => :put } do |f| %>
 
 	  <%= render :partial => 'features/form', :locals => { :feature => feature, :f => f }%>
 
