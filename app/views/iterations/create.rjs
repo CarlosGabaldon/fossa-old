@@ -1,6 +1,5 @@
 if @iteration.new_record?
-  page.alert "The iteration could not be added for the following reasons:\n"
-            + @iteration.errors.full_messages.join("\n")
+  page.alert "The iteration could not be added for the following reasons:\n #{@iteration.errors.full_messages.split('\n')}"
 else
 
   page.insert_html :bottom, "iterations", :partial => 'iteration', :locals => { :iteration => @iteration }

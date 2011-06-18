@@ -1,6 +1,5 @@
 if @feature.new_record?
-  page.alert "The feature could not be added for the following reasons:\n"
-            + @feature.errors.full_messages.join("\n")
+  page.alert "The feature could not be added for the following reasons:\n #{@feature.errors.full_messages.split('\n')}"
 else
   features_div = "features-high"
   if @feature.priority.name == "Med"

@@ -1,6 +1,6 @@
 if @task.new_record?
-  page.alert "The task could not be added for the following reasons:\n"
-            + @task.errors.full_messages.join("\n")
+  page.alert "The task could not be added for the following reasons:\n #{@task.errors.full_messages.join('\n')}"
+          
 else
   tasks_div = "tasks-high"
   if @task.priority.name == "Med"

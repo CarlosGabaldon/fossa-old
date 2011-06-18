@@ -4,6 +4,11 @@ class Task < ActiveRecord::Base
   belongs_to :feature
   belongs_to :user
   
+  validates :name, :presence => true
+  validates :description, :presence => true
+  validates :priority_id, :presence => true
+  
+  
   def self.high_priority
     find :all, :conditions => "priority_id = 1"
   end

@@ -4,6 +4,11 @@ class Feature < ActiveRecord::Base
   has_many :iterations
   has_many :tasks, :dependent => :destroy 
   
+  validates :name, :presence => true
+  validates :description, :presence => true
+  validates :priority_id, :presence => true
+  
+  
   def self.high_priority
     find :all, :conditions => "priority_id = 1"
     
