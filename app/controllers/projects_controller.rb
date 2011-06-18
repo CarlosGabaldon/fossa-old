@@ -2,50 +2,35 @@ class ProjectsController < ApplicationController
   
   respond_to :html, :js
   
-  # GET /projects
-  # GET /projects.xml
   def index
     get_projects
     get_priorities
 
-    respond_with [get_priorities, get_priorities]
+    #respond_with [get_priorities, get_priorities]
   end
 
-  # GET /projects/1
-  # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
-
     respond_with @project
   end
 
-  # GET /projects/new
-  # GET /projects/new.xml
   def new
     @project = Project.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @project }
-    end
+    respond_with @project
   end
 
-  # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
     get_priorities
-    
     respond_with @project
   end
 
-  # POST /projects
-  # POST /projects.xml
   def create
     @project = Project.new(params[:project])
+    create_was_successful = @project.save
     
-
-    respond_to do |format|
-      if @project.save
+    respond_with @project do |format|
+      if create_was_successful
         get_projects
         format.js
       else
@@ -54,8 +39,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PUT /projects/1
-  # PUT /projects/1.xml
   def update
     @project = Project.find(params[:id])
 
@@ -73,8 +56,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1
-  # DELETE /projects/1.xml
   def destroy
     @project = Project.find(params[:id])
     @removed_project = @project

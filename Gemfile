@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'devise'
 
+gem 'formtastic', '~> 1.2.0'
+
 gem 'dynamic_form'
 
 # Use unicorn as the web server

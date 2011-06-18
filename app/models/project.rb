@@ -2,6 +2,11 @@ class Project < ActiveRecord::Base
   has_many :features, :dependent => :destroy 
   belongs_to :priority
   
+  validates :name, :presence => true
+  validates :description, :presence => true
+  validates :priority_id, :presence => true
+  
+  
   def self.high_priority
     find :all, :conditions => "priority_id = 1"
   end

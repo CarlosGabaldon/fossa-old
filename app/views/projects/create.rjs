@@ -1,6 +1,6 @@
 if @project.new_record?
-  page.alert "The project could not be added for the following reasons:\n"
-            + @project.errors.full_messages.join("\n")
+  page.alert "The project could not be added for the following reasons:\n #{@project.errors.full_messages.split('\n')}"
+          
 else
   projects_div = "projects-high"
   if @project.priority.name == "Med"
