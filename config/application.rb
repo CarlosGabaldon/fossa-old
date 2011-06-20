@@ -36,7 +36,7 @@ module Fossa
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
     
-    #Devise Auth - Needs to be updated to Prod host when deploying
+    #Devise Auth - Needs to be updated to Prod host when deploying  i.e. {http://fossa.heroku.com/}
     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
     # Configure sensitive parameters which will be filtered from the log file.
