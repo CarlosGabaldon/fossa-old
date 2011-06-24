@@ -6,7 +6,7 @@ elsif @task.priority.name == "Low"
 end
 
 page.remove dom_id(@task)
-page.insert_html :bottom, tasks_div, :partial => 'task'
+page.insert_html :bottom, tasks_div, :partial => 'task', :locals => {:task => @task}
 page.visual_effect :highlight, dom_id(@task)
 page.replace_html "high", "#{@high_tasks.length} High"
 page.replace_html "med", "#{@med_tasks.length} Medium"

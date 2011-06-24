@@ -2,7 +2,7 @@
  	<%= form_for task, 
  	             :as => :task, 
  	             :remote => true,
-               :url => task_path(@project, @feature, @iteration, task),   
+               :url => project_feature_iteration_task_path(@project, @feature, @iteration, task),   
                :loading => 'App.disableProjectForm()',
                :complete => 'App.enableProjectForm()',
                :html => {:id => 'task-form', :method => :put } do |f| %>
@@ -12,9 +12,9 @@
  
  	  <%= submit_tag 'Edit task' %> or 
 
-      <%= link_to_remote 'Cancel', 
-	                 :url => cancel_task_path(@project, @feature, @iteration, task), 
-	                 :method => :get %>
+      <%= link_to 'Cancel', cancel_project_feature_iteration_task_path(@project, @feature, @iteration, task), 
+	                 :method => :get,
+	                 :remote => true %>
 
  	  <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
 

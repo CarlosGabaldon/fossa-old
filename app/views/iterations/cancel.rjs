@@ -1,2 +1,2 @@
-page.replace dom_id(@iteration), :partial => 'iteration', :locals => {:iterations => @iterations} 
+page.replace dom_id(@iteration), :partial => 'iteration', :locals => {:iteration => @iteration} 
 

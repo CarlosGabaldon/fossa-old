@@ -7,11 +7,11 @@
 
 <%= link_to 'Edit', edit_project_feature_iteration_task_path(@project, @feature, @iteration, task), 
                  :method => :get,
-                 :method => :remote %> or
+                 :remote => true %> or
  <%= link_to 'Destroy',project_feature_iteration_task_path(@project, @feature, @iteration, task),
                  :confirm => 'Are you sure?',
 	               :method => :delete,
-	               :method => :remote %>
+	               :remote => true %>
 <% end %>
 
 <br/>

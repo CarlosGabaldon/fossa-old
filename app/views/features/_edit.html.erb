@@ -2,7 +2,7 @@
  	<%= form_for feature, 
  	            :as => :feature, 
  	            :remote => true,
-              :url => feature_path(@project, feature),   
+              :url => project_feature_path(@project, feature),   
               :loading => 'App.disableProjectForm()',
               :complete => 'App.enableProjectForm()',
               :html => {:id => 'feature-form', :method => :put } do |f| %>
@@ -12,9 +12,9 @@
  
  	  <%= submit_tag 'Edit feature' %> or 
 
-      <%= link_to_remote 'Cancel', 
-	                 :url => cancel_feature_path(@project, feature), 
-	                 :method => :get %>
+      <%= link_to 'Cancel', cancel_project_feature_path(@project, feature), 
+	                 :method => :get,
+	                 :remote => true %>
 
  	  <%= image_tag 'indicator.gif', :id => 'form-indicator', :style => 'display:none;' %>
 

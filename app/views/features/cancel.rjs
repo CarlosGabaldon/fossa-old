@@ -1,2 +1,2 @@
-page.replace dom_id(@feature), :partial => 'feature'
+page.replace dom_id(@feature), :partial => 'feature', :locals => {:feature => @feature} 
 

@@ -2,13 +2,13 @@
 <b><%= iteration.name %></b> requires <b><%= pluralize(iteration.total_days, "day") %></b> of work to complete<br/>
 <%= link_to pluralize(iteration.tasks.length, "Task")  , project_feature_iteration_tasks_path(@project, @feature, iteration) %> 
 
-<!--% if logged_in?  %-->
+<% if user_signed_in? %>
 -
 <%= link_to 'Edit', edit_project_feature_iteration_path(@project, @feature, iteration), 
                         :method => :get, :remote => true %> or
  <%= link_to 'Destroy', project_feature_iteration_path(@project, @feature, iteration), 
                         :method => :delete, :remote => true, :confirm => 'Are you sure?' %>
-<!--% end %-->
+<% end %>
 
 <br/>
 - <%= iteration.description %><br/>
