@@ -18,9 +18,6 @@ How does Fossa work?
 
 ## ENVIRONMENT SETUP ##
 
---  
-  1. Install restful-authentication: https://github.com/Satish/restful-authentication#INSTALL
-  2. Install acts_as_state_machine:  https://github.com/mnutt/acts_as_state_machine.git
 
 
 Copyright (c) 2008 Carlos Gabaldon, released under the MIT license
