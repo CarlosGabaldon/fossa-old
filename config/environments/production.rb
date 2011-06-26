@@ -46,4 +46,8 @@ Fossa::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  # Devise - auth
+  config.action_mailer.default_url_options = { :host => 'http://fossa.heroku.com/' }
+  
 end
