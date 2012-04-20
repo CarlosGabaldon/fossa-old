@@ -4,7 +4,7 @@ class Iteration < ActiveRecord::Base
   
   validates :name, :presence => true
   validates :description, :presence => true
-  validates :days, :presence => true
+  #validates :days, :presence => true
   
   
   def total_days
