@@ -10,6 +10,7 @@ Fossa::Application.routes.draw do
     resources :features do
       member do
         get :cancel
+        put :complete
       end
       resources :iterations do
         member do

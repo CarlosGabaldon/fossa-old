@@ -8,7 +8,31 @@
 <%= link_to 'Edit', edit_project_feature_path(@project, feature), :method => :get, :remote => true %> or
 <%= link_to 'Destroy',project_feature_path(@project, feature), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
 	
-or Mark this feature completed <%= check_box_tag "feature[completed]", feature.completed %>
+	
+
+<%= form_for feature, 
+	          :as => :feature, 
+	          :remote => true,
+            :url => complete_project_feature_path(@project, feature),   
+            :html => {:id => 'feature-form', :method => :put } do |f| %>
+            
+            <%= f.hidden_field 'name' %>
+
+            <%= f.hidden_field 'description' %>
+            <%= f.hidden_field 'priority_id' %>
+            or Mark this feature completed
+            <%= f.check_box 'completed' %>
+        
+
+	  <%= submit_tag 'Update' %> 
+
+
+	<% end %>
+	
+	
+	
+	
+
 
 <% end %>
 

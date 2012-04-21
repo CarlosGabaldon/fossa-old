@@ -101,6 +101,18 @@ class FeaturesController < ApplicationController
     @feature = Feature.find(params[:id])
   end
   
+  
+  # POST /features/1;complete
+   # To generate url #=> complete_project_feature_path(@project, feature); link_to_remote also needs #=> :method => :get 
+   # Needed in routes.rb #=> resources :features { :member => { put :complete } }
+  def complete
+    @feature = Feature.find(params[:id])
+    @feature.update_attributes(params[:feature])
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   private
   
   def load_project
