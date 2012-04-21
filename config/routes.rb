@@ -19,6 +19,7 @@ Fossa::Application.routes.draw do
         resources :tasks do
           member do
             get :cancel
+            put :complete
           end
         end
       end

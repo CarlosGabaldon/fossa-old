@@ -100,9 +100,21 @@ class TasksController < ApplicationController
   end
   
    # POST /tasks/1;cancel
-   def cancel
-     @task = Task.find(params[:id])
-   end
+  def cancel
+    @task = Task.find(params[:id])
+  end
+  
+  # POST /features/1;complete
+  # To generate url #=> complete_project_feature_iteration_task_path(@project, @feature, @iteration, task)
+  # Needed in routes.rb #=> resources :tasks { :member => { put :complete } }
+  def complete
+    @task = Task.find(params[:id])
+    @task.update_attributes(params[:task])
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   
   private
   
